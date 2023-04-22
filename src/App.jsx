@@ -15,7 +15,7 @@ function App() {
       let resp = await axios.get(
         `https://api.themoviedb.org/3/trending/${type}/day?api_key=${apiKey}&media_type=movie`
       );
-      console.log(21, resp.data.results);
+      console.log(resp.data.results);
 
       setMovieData(resp.data.results);
     } catch (e) {
@@ -25,8 +25,8 @@ function App() {
 
   return (
     <>
-      <div className="background_container bg-gray-900">
-        <div className="button_container flex justify-center gap-7 bg-gray-900 lg:text-lg">
+      <div className="background_container bg-gradient-to-tr from-gray-700 via-gray-900 to-black">
+        <div className="button_container flex justify-center gap-7 bg-gradient-to-tr from-gray-700 via-gray-900 to-black lg:text-lg">
           <button
             className="bg-red-500 px-6 py-3 hover:bg-red-700 focus:bg-red-700 active:bg-red-900"
             onClick={() => {
@@ -46,7 +46,10 @@ function App() {
         </div>
         <div className="flex-container">
           {movieData.map((item) => (
-            <div key={item.id} className="movie_item">
+            <div
+              key={item.id}
+              className="movie_item transform cursor-pointer transition-all hover:scale-95"
+            >
               <img
                 src={`https://image.tmdb.org/t/p/w300/${item.poster_path}`}
               />
