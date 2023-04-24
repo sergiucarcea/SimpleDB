@@ -25,8 +25,34 @@ function App() {
 
   return (
     <>
-      <div className="background_container bg-gradient-to-tr from-gray-700 via-gray-900 to-black">
-        <div className="button_container flex justify-center gap-7 bg-gradient-to-tr from-gray-700 via-gray-900 to-black lg:text-lg">
+      <div class="bg-gray-900">
+        <div class="container mx-auto flex items-center justify-between py-4">
+          <ul class="flex space-x-10 text-lg text-gray-300">
+            <li class="duration-300 hover:text-white active:text-gray-300 ">
+              <a href="#">HOME</a>
+            </li>
+            <li class="duration-300 hover:text-white active:text-gray-300">
+              <a href="#">ABOUT</a>
+            </li>
+            <li class="duration-300 hover:text-white active:text-gray-300">
+              <a href="#">SERVICES</a>
+            </li>
+            <li class="duration-300 hover:text-white active:text-gray-300">
+              <a href="#">WORKS</a>
+            </li>
+          </ul>
+          <div class="flex items-center">
+            <a
+              href="#"
+              class="rounded-sm bg-red-600 px-4 py-2 text-lg text-gray-50 shadow-md duration-300 hover:bg-red-700 hover:text-white active:bg-red-800 active:text-gray-300"
+            >
+              GET IN TOUCH
+            </a>
+          </div>
+        </div>
+      </div>
+      <div className="background_container bg=gray-900">
+        <div className="button_container flex justify-center gap-7 lg:text-lg">
           <button
             className="bg-red-500 px-6 py-3 hover:bg-red-700 focus:bg-red-700 active:bg-red-900"
             onClick={() => {
@@ -58,6 +84,12 @@ function App() {
               </div>
             </div>
           ))}
+        </div>
+        <div className="flex-container container">
+          <h1 className="m-11 mx-auto space-x-4 rounded-lg bg-white px-12 text-blue-500 shadow-lg">
+            Still nothing found?
+          </h1>
+          <div className=""></div>
         </div>
       </div>
     </>
