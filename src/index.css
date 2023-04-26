@@ -41,3 +41,16 @@ button:hover {
   font-size: 1.2rem;
   font-weight: bold;
 }
+
+#hero {
+  background-image: url("./image-hero.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media (max-width: 576px) {
+  #hero {
+    background-image: url("./image-hero.jpg");
+    background-position: center;
+  }
+}
