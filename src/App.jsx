@@ -28,9 +28,9 @@ function App() {
       <section id="hero" className="font-mono shadow-2xl">
         <div className=" mx-auto max-w-7xl py-12">
           <nav className="flex items-center justify-between  text-white">
-            <img src="src/logo.svg" alt="logo" className="max-w-[22%]" />
+            <img src=".src/logo.svg" alt="logo" className="max-w-[22%]" />
 
-            <div className=" flex h-10 flex-col items-center pt-3 md:flex md:flex-row md:items-start md:justify-between md:space-x-8 md:space-y-0">
+            <div className="flex h-10 flex-col items-center pt-3 md:flex md:flex-row md:items-start md:justify-between md:space-x-8 md:space-y-0">
               <div className="group text-lg text-gray-50 duration-300 hover:text-gray-300 active:text-gray-500 ">
                 <a href="#">About</a>
               </div>
@@ -90,7 +90,7 @@ function App() {
         </div>
         <div className="md:grid-cols-3-3 grid grid-cols-3 content-center bg-black pb-32 align-middle text-white sm:row-span-3  sm:text-xs md:text-base lg:text-lg">
           <div className="">
-            <img src="src/1.png" alt="" />
+            <img src=".src/1.png" alt="" />
             <h1 className="text-center text-xl">Unlimited entertainment</h1>
             <p className="text-center">
               Explore thousands of hours of original TV shows, movies and
@@ -98,7 +98,7 @@ function App() {
             </p>
           </div>
           <div>
-            <img src="src/2.png" alt="" />
+            <img src=".src/2.png" alt="" />
             <h1 className="text-center text-xl">
               Available on your favorite devices
             </h1>
@@ -107,7 +107,7 @@ function App() {
             </p>
           </div>
           <div>
-            <img src="src/3.png" alt="" />
+            <img src=".src/3.png" alt="" />
             <h1 className="text-center text-xl">
               Easy-to-use parental controls
             </h1>
@@ -123,7 +123,7 @@ function App() {
             <div className="flex flex-col items-center space-y-8 md:items-start md:space-y-4">
               <div className="h-8">
                 <img
-                  src="src/logo.svg"
+                  src=".src/logo.svg"
                   alt=""
                   className="max-w-[22%] md:ml-3"
                 />
@@ -156,25 +156,25 @@ function App() {
               <div className="mx-auto flex items-center justify-center space-x-4 md:mx-0 md:justify-end ">
                 <div className="group h-8">
                   <a href="#">
-                    <img src="src/icon-facebook.svg" alt="" className="h-6 " />
+                    <img src=".src/icon-facebook.svg" alt="" className="h-6 " />
                   </a>
                 </div>
 
                 <div className="group h-8">
                   <a href="#">
-                    <img src="src/icon-twitter.svg" alt="" className="h-6" />
+                    <img src=".src/icon-twitter.svg" alt="" className="h-6" />
                   </a>
                 </div>
 
                 <div className="group h-8">
                   <a href="#">
-                    <img src="src/icon-pinterest.svg" alt="" className="h-6" />
+                    <img src=".src/icon-pinterest.svg" alt="" className="h-6" />
                   </a>
                 </div>
 
                 <div className="group h-8">
                   <a href="#">
-                    <img src="src/icon-instagram.svg" alt="" className="h-6" />
+                    <img src=".src/icon-instagram.svg" alt="" className="h-6" />
                   </a>
                 </div>
               </div>
