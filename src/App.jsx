@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "./index.css";
-import imagehero from "/src/image-hero.jpg";
 import firstlogo from "/src/logo.svg";
 import logo1 from "/src/one.png";
 import logo2 from "/src/two.png";
@@ -37,7 +36,7 @@ function App() {
       <section id="hero" className="font-mono shadow-2xl">
         <div className=" mx-auto max-w-7xl py-12">
           <nav className="flex items-center justify-between  text-white">
-            <img src={imagehero} alt="logo" className="max-w-[22%]" />
+            <img src={firstlogo} alt="logo" className="max-w-[22%]" />
 
             <div className="flex h-10 flex-col items-center pt-3 md:flex md:flex-row md:items-start md:justify-between md:space-x-8 md:space-y-0">
               <div className="group text-lg text-gray-50 duration-300 hover:text-gray-300 active:text-gray-500 ">
