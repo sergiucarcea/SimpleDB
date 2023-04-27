@@ -1,9 +1,15 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "./index.css";
+import imagehero from "/src/image-hero.jpg";
+import firstlogo from "/src/logo.svg";
 import logo1 from "/src/one.png";
 import logo2 from "/src/two.png";
 import logo3 from "/src/three.png";
+import logo4 from "/src/icon-facebook.svg";
+import logo5 from "/src/icon-twitter.svg";
+import logo6 from "/src/icon-instagram.svg";
+import logo7 from "/src/icon-pinterest.svg";
 
 function App() {
   const [movieData, setMovieData] = useState([]);
@@ -31,7 +37,7 @@ function App() {
       <section id="hero" className="font-mono shadow-2xl">
         <div className=" mx-auto max-w-7xl py-12">
           <nav className="flex items-center justify-between  text-white">
-            <img src="/src/logo.svg" alt="logo" className="max-w-[22%]" />
+            <img src={imagehero} alt="logo" className="max-w-[22%]" />
 
             <div className="flex h-10 flex-col items-center pt-3 md:flex md:flex-row md:items-start md:justify-between md:space-x-8 md:space-y-0">
               <div className="group text-lg text-gray-50 duration-300 hover:text-gray-300 active:text-gray-500 ">
@@ -125,11 +131,7 @@ function App() {
           <div className="mb-8 flex flex-col items-center space-y-6 md:flex-row md:items-start md:justify-between md:space-y-0">
             <div className="flex flex-col items-center space-y-8 md:items-start md:space-y-4">
               <div className="h-8">
-                <img
-                  src="/src/logo.svg"
-                  alt=""
-                  className="max-w-[22%] md:ml-3"
-                />
+                <img src={firstlogo} alt="" className="max-w-[22%] md:ml-3" />
               </div>
 
               <div className="flex flex-col items-center space-y-4 font-bold text-white md:ml-3 md:flex-row md:space-x-6 md:space-y-0">
@@ -159,41 +161,25 @@ function App() {
               <div className="mx-auto flex items-center justify-center space-x-4 md:mx-0 md:justify-end ">
                 <div className="group h-8">
                   <a href="#">
-                    <img
-                      src="/src/icon-facebook.svg"
-                      alt=""
-                      className=" h-7 w-7"
-                    />
+                    <img src={logo4} alt="" className=" h-7 w-7" />
                   </a>
                 </div>
 
                 <div className="group h-8">
                   <a href="#">
-                    <img
-                      src="/src/icon-twitter.svg"
-                      alt=""
-                      className="h-7 w-7"
-                    />
+                    <img src={logo5} alt="" className="h-7 w-7" />
                   </a>
                 </div>
 
                 <div className="group h-8">
                   <a href="#">
-                    <img
-                      src="/src/icon-pinterest.svg"
-                      alt=""
-                      className="h-7 w-7"
-                    />
+                    <img src={logo7} alt="" className="h-7 w-7" />
                   </a>
                 </div>
 
                 <div className="group h-8">
                   <a href="#">
-                    <img
-                      src="/src/icon-instagram.svg"
-                      alt=""
-                      className="h-7 w-7"
-                    />
+                    <img src={logo6} alt="" className="h-7 w-7" />
                   </a>
                 </div>
               </div>
