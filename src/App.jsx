@@ -90,7 +90,7 @@ function App() {
         </div>
         <div className="md:grid-cols-3-3 grid grid-cols-3 content-center bg-black pb-32 align-middle text-white sm:row-span-3  sm:text-xs md:text-base lg:text-lg">
           <div className="">
-            <img src="/src/1.png" alt="something" />
+            <img src="/src/1.jpg" alt="something" />
             <h1 className="text-center text-xl">Unlimited entertainment</h1>
             <p className="text-center">
               Explore thousands of hours of original TV shows, movies and
@@ -98,7 +98,7 @@ function App() {
             </p>
           </div>
           <div>
-            <img src="/src/2.png" alt="something" />
+            <img src="/src/2.jpg" alt="something" />
             <h1 className="text-center text-xl">
               Available on your favorite devices
             </h1>
@@ -107,7 +107,7 @@ function App() {
             </p>
           </div>
           <div>
-            <img src="/src/3.png" alt="something" />
+            <img src="/src/3.jpg" alt="something" />
             <h1 className="text-center text-xl">
               Easy-to-use parental controls
             </h1>
