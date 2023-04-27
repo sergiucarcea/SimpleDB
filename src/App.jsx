@@ -62,7 +62,7 @@ function App() {
           </div>
         </div>
       </section>
-      <div className="background_container bg-gray-500">
+      <div className="background_container bg-gradient-to-tr from-blue-900 via-stone-800 to-blue-900">
         <div className="button_container flex justify-center gap-7 gap-x-20 lg:text-lg">
           <button
             className="cursor-pointer rounded-md bg-red-600 p-4  px-7 text-lg text-gray-50  shadow-2xl duration-300 hover:bg-red-700 hover:text-white active:bg-red-800 active:text-gray-300"
