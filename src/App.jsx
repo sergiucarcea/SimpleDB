@@ -12,6 +12,7 @@ import logo7 from "/src/icon-pinterest.svg";
 
 function App() {
   const [movieData, setMovieData] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     getTrendingMovieData("movie");
@@ -20,20 +21,32 @@ function App() {
   async function getTrendingMovieData(type) {
     try {
       const apiKey = "db9d40d07710f8f16e5180c72ca16b00";
-      let resp = await axios.get(
-        `https://api.themoviedb.org/3/trending/${type}/day?api_key=${apiKey}&media_type=movie`
-      );
-      console.log(resp.data.results);
+      let resp;
+      if (searchQuery) {
+        resp = await axios.get(
+          `https://api.themoviedb.org/3/search/${type}?api_key=${apiKey}&query=${searchQuery}&media_type=movie`
+        );
+      } else {
+        resp = await axios.get(
+          `https://api.themoviedb.org/3/trending/${type}/day?api_key=${apiKey}&media_type=movie`
+        );
+      }
 
+      // console.log(resp.data.results);
       setMovieData(resp.data.results);
     } catch (e) {
-    } finally {
+      console.error(e);
     }
+  }
+
+  function handleSearch(event) {
+    event.preventDefault();
+    getTrendingMovieData(searchQuery ? "multi" : "movie");
   }
 
   return (
     <>
-      <section id="hero" className="font-mono shadow-2xl">
+      <section id="hero" className="font-mono shadow-2xl ">
         <div className=" mx-auto max-w-7xl py-12">
           <nav className="flex items-center justify-between  text-white">
             <img src={firstlogo} alt="logo" className="max-w-[22%]" />
@@ -57,12 +70,12 @@ function App() {
             </div>
           </nav>
 
-          <div className="mb-32 mt-32 max-w-lg border-2 p-4 font-sans text-4xl uppercase text-gray-50 md:m-32 md:mx-0 md:p-10 md:text-6xl">
+          <div className="mb-32 mt-32 max-w-lg border-2 p-4 font-sans text-4xl uppercase text-gray-50 opacity-90 md:m-32 md:mx-0 md:p-10 md:text-6xl">
             Limitless cinema, television shows,and more
           </div>
         </div>
       </section>
-      <div className="background_container bg-gradient-to-tr from-blue-900 via-stone-800 to-blue-900">
+      <div className="background_container bg-gradient-to-tr from-blue-900 via-stone-800 to-blue-900 ">
         <div className="button_container flex justify-center gap-7 gap-x-20 lg:text-lg">
           <button
             className="cursor-pointer rounded-md bg-red-600 p-4  px-7 text-lg text-gray-50  shadow-2xl duration-300 hover:bg-red-700 hover:text-white active:bg-red-800 active:text-gray-300"
@@ -96,8 +109,8 @@ function App() {
             </div>
           ))}
         </div>
-        <div className="md:grid-cols-3-3 grid grid-cols-3 content-center bg-black pb-32 align-middle text-white sm:row-span-3  sm:text-xs md:text-base lg:text-lg">
-          <div className="">
+        <div className="md:grid-cols-3-3 grid grid-cols-3 justify-center bg-black py-10 pb-32 align-middle text-white sm:row-span-3  sm:text-xs md:text-base lg:text-lg">
+          <div className="items-center">
             <img src={logo1} alt="something" />
             <h1 className="text-center text-xl">Unlimited entertainment</h1>
             <p className="text-center">
@@ -105,7 +118,7 @@ function App() {
               productions.
             </p>
           </div>
-          <div>
+          <div className="items-center">
             <img src={logo2} alt="something" />
             <h1 className="text-center text-xl">
               Available on your favorite devices
@@ -114,7 +127,7 @@ function App() {
               You can watch on 4 screens simultaneously on your favorite devices
             </p>
           </div>
-          <div>
+          <div className="items-center">
             <img src={logo3} alt="something" />
             <h1 className="text-center text-xl">
               Easy-to-use parental controls
@@ -125,6 +138,29 @@ function App() {
           </div>
         </div>
       </div>
+      <div className="bg-black text-center text-2xl text-red-500 ">
+        Still nothing found?
+      </div>
+      <form
+        className="flex items-center justify-center bg-black "
+        onSubmit={handleSearch}
+      >
+        <input
+          type="text"
+          value={searchQuery}
+          onChange={(event) => setSearchQuery(event.target.value)}
+          placeholder="Search movies, shows..."
+          className=" rounded-md rounded-r-none bg-gray-800 px-2 py-4 text-center text-lg text-gray-100 md:w-auto"
+        />
+
+        <button
+          type="submit"
+          className="my-10 cursor-pointer rounded-md rounded-l-none bg-red-600 p-4 px-7 text-center text-lg text-gray-50  duration-300 hover:bg-red-700 hover:text-white active:bg-red-800 active:text-gray-300"
+        >
+          Search
+        </button>
+      </form>
+
       <footer className="bg-black shadow-2xl">
         <div className="container mx-auto max-w-7xl py-10">
           <div className="mb-8 flex flex-col items-center space-y-6 md:flex-row md:items-start md:justify-between md:space-y-0">
