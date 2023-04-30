@@ -23,6 +23,19 @@ function App() {
     setShowModal(false);
   };
 
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    const emailInput = document.getElementById("email");
+    const passwordInput = document.getElementById("password");
+
+    const email = emailInput.value;
+    const password = passwordInput.value;
+
+    localStorage.setItem("email", email);
+    localStorage.setItem("password", password);
+  }
+
   useEffect(() => {
     getTrendingMovieData("movie");
   }, []);
@@ -82,7 +95,7 @@ function App() {
           </nav>
 
           <button
-            className="active:text-gray-3000 float-right cursor-pointer rounded-md bg-red-600  p-4 px-7 text-lg  text-gray-50 shadow-2xl duration-300 hover:bg-red-700 hover:text-white active:bg-red-800"
+            className="active:text-gray-3000 float-right cursor-pointer rounded-md bg-red-600 p-4 px-7 text-lg text-gray-50  shadow-2xl duration-300 hover:bg-red-700 hover:text-white active:bg-red-800 sm:p-2 md:p-2"
             onClick={handleSignInClick}
           >
             Sign in
@@ -95,7 +108,7 @@ function App() {
                   <div className="mb-4 text-lg font-bold">
                     Access Exclusive Content
                   </div>
-                  <form>
+                  <form onSubmit={handleSubmit}>
                     <div className="mb-4">
                       <label
                         className="mb-2 block font-bold text-gray-700"
@@ -127,10 +140,7 @@ function App() {
                       />
                     </div>
                     <div className="flex justify-end">
-                      <button
-                        className="rounded bg-indigo-500 px-6 py-2 font-bold text-white hover:bg-indigo-600 active:bg-indigo-700"
-                        type="submit"
-                      >
+                      <button className="rounded bg-indigo-500 px-6 py-2 font-bold text-white hover:bg-indigo-600 active:bg-indigo-700">
                         Sign in
                       </button>
                       <button
