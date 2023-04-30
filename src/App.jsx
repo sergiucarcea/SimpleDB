@@ -13,6 +13,15 @@ import logo7 from "/src/icon-pinterest.svg";
 function App() {
   const [movieData, setMovieData] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
+  const [showModal, setShowModal] = useState(false);
+
+  const handleSignInClick = () => {
+    setShowModal(true);
+  };
+
+  const handleModalClose = () => {
+    setShowModal(false);
+  };
 
   useEffect(() => {
     getTrendingMovieData("movie");
@@ -49,26 +58,93 @@ function App() {
       <section id="hero" className="font-mono shadow-2xl ">
         <div className=" mx-auto max-w-7xl py-12">
           <nav className="flex items-center justify-between  text-white">
-            <img src={firstlogo} alt="logo" className="max-w-[22%]" />
+            <img
+              src={firstlogo}
+              alt="logo"
+              className="max-w-[22%] cursor-pointer"
+              onClick={() => window.location.reload()}
+            />
 
             <div className="flex h-10 flex-col items-center pt-3 md:flex md:flex-row md:items-start md:justify-between md:space-x-8 md:space-y-0">
               <div className="group text-lg text-gray-50 duration-300 hover:text-gray-300 active:text-gray-500 ">
-                <a href="#">About</a>
+                <a href="#movies">Movies</a>
               </div>
               <div className="group text-lg text-gray-50 duration-300 hover:text-gray-300 active:text-gray-500">
-                <a href="#">Careers</a>
+                <a href="#shows">TV Shows</a>
               </div>
               <div className="group text-lg text-gray-50 duration-300 hover:text-gray-300 active:text-gray-500">
-                <a href="#">Events</a>
+                <a href="#">Actors</a>
               </div>
               <div className="group text-lg text-gray-50 duration-300 hover:text-gray-300 active:text-gray-500">
-                <a href="#">Products</a>
-              </div>
-              <div className="group cursor-pointer rounded-sm bg-red-600 px-6 text-lg  text-gray-50 duration-300 hover:bg-red-700 hover:text-white active:bg-red-800 active:text-gray-300">
-                <a href="#">Sign In</a>
+                <a href="#">Reviews</a>
               </div>
             </div>
           </nav>
+
+          <button
+            className="active:text-gray-3000 float-right cursor-pointer rounded-md bg-red-600  p-4 px-7 text-lg  text-gray-50 shadow-2xl duration-300 hover:bg-red-700 hover:text-white active:bg-red-800"
+            onClick={handleSignInClick}
+          >
+            Sign in
+          </button>
+          {showModal && (
+            <div className="fixed inset-0 z-10 overflow-y-auto">
+              <div className="flex min-h-screen items-center justify-center">
+                <div className="fixed inset-0 bg-gray-900 bg-opacity-75"></div>
+                <div className="z-10 rounded-lg bg-white p-8 opacity-90">
+                  <div className="mb-4 text-lg font-bold">
+                    Access Exclusive Content
+                  </div>
+                  <form>
+                    <div className="mb-4">
+                      <label
+                        className="mb-2 block font-bold text-gray-700"
+                        htmlFor="email"
+                      >
+                        Email
+                      </label>
+                      <input
+                        className="rounded border px-3 py-2"
+                        id="email"
+                        name="email"
+                        type="email"
+                        placeholder="you@example.com"
+                      />
+                    </div>
+                    <div className="mb-6">
+                      <label
+                        className="mb-2 block font-bold text-gray-700"
+                        htmlFor="password"
+                      >
+                        Password
+                      </label>
+                      <input
+                        className="rounded border px-3 py-2"
+                        id="password"
+                        name="password"
+                        type="password"
+                        placeholder="*********"
+                      />
+                    </div>
+                    <div className="flex justify-end">
+                      <button
+                        className="rounded bg-indigo-500 px-6 py-2 font-bold text-white hover:bg-indigo-600 active:bg-indigo-700"
+                        type="submit"
+                      >
+                        Sign in
+                      </button>
+                      <button
+                        className="ml-4 rounded px-6 py-2 font-bold text-gray-600 hover:text-black"
+                        onClick={handleModalClose}
+                      >
+                        Cancel
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          )}
 
           <div className="mb-32 mt-32 max-w-lg border-2 p-4 font-sans text-4xl uppercase text-gray-50 opacity-90 md:m-32 md:mx-0 md:p-10 md:text-6xl">
             Limitless cinema, television shows,and more
@@ -78,6 +154,7 @@ function App() {
       <div className="background_container bg-gradient-to-tr from-blue-900 via-stone-800 to-blue-900 ">
         <div className="button_container flex justify-center gap-7 gap-x-20 lg:text-lg">
           <button
+            id="movies"
             className="cursor-pointer rounded-md bg-red-600 p-4  px-7 text-lg text-gray-50  shadow-2xl duration-300 hover:bg-red-700 hover:text-white active:bg-red-800 active:text-gray-300"
             onClick={() => {
               getTrendingMovieData("movie");
@@ -86,6 +163,7 @@ function App() {
             Trending Movies
           </button>
           <button
+            id="shows"
             className="cursor-pointer rounded-md bg-red-600 p-4 px-7 text-lg text-gray-50 shadow-2xl duration-300 hover:bg-red-700 hover:text-white active:bg-red-800 active:text-gray-300"
             onClick={() => {
               getTrendingMovieData("tv");
@@ -166,24 +244,29 @@ function App() {
           <div className="mb-8 flex flex-col items-center space-y-6 md:flex-row md:items-start md:justify-between md:space-y-0">
             <div className="flex flex-col items-center space-y-8 md:items-start md:space-y-4">
               <div className="h-8">
-                <img src={firstlogo} alt="" className="max-w-[22%] md:ml-3" />
+                <img
+                  src={firstlogo}
+                  alt=""
+                  className="max-w-[22%] md:ml-3"
+                  onClick={() => window.location.reload()}
+                />
               </div>
 
               <div className="flex flex-col items-center space-y-4 font-bold text-white md:ml-3 md:flex-row md:space-x-6 md:space-y-0">
                 <div className="group h-10 text-lg text-gray-50 duration-300 hover:text-gray-300 active:text-gray-500">
-                  <a href="#">About</a>
+                  <a href="#movies">Movies</a>
                 </div>
 
                 <div className="group h-10 text-lg text-gray-50 duration-300 hover:text-gray-300 active:text-gray-500">
-                  <a href="#">Careers</a>
+                  <a href="#shows">TV Shows</a>
                 </div>
 
                 <div className="group h-10 text-lg text-gray-50 duration-300 hover:text-gray-300 active:text-gray-500">
-                  <a href="#">Events</a>
+                  <a href="#">Actors</a>
                 </div>
 
                 <div className="group h-10 text-lg text-gray-50 duration-300 hover:text-gray-300 active:text-gray-500">
-                  <a href="#">Products</a>
+                  <a href="#">Reviews</a>
                 </div>
 
                 <div className="group h-10 text-lg text-gray-50 duration-300 hover:text-gray-300 active:text-gray-500">

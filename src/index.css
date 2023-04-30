@@ -5,9 +5,8 @@
 button {
   border-radius: 0.4rem;
   border: 1px solid #032541;
-  background-color: #084b81;
   color: white;
-  margin-top: 5rem;
+  margin-top: 2rem;
 }
 button:hover {
   cursor: pointer;
