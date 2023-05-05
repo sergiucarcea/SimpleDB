@@ -95,7 +95,7 @@ function App() {
           </nav>
 
           <button
-            className="active:text-gray-3000 float-right cursor-pointer rounded-md bg-red-600 p-4 px-7 text-lg text-gray-50  shadow-2xl duration-300 hover:bg-red-700 hover:text-white active:bg-red-800 sm:p-2 md:p-2"
+            className=" btn-accent btn float-right  sm:btn-sm  md:btn-md lg:btn-lg"
             onClick={handleSignInClick}
           >
             Sign in
@@ -161,7 +161,7 @@ function App() {
           </div>
         </div>
       </section>
-      <div className="hero h-[80%] bg-gradient-to-tl from-blue-900 via-stone-800 to-blue-900 backdrop-blur-sm">
+      <div className="hero h-[80%] bg-gradient-to-tl  from-blue-900 via-stone-800 to-blue-900 backdrop-blur-sm">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left">
             <h1 className="text-5xl font-bold text-red-500">Don't miss out!</h1>
@@ -170,7 +170,7 @@ function App() {
               exploring the best of entertainment!
             </p>
           </div>
-          <div className="card w-full max-w-sm flex-shrink-0 bg-base-300  bg-opacity-20 hover:bg-opacity-90">
+          <div className="card w-full max-w-sm flex-shrink-0 bg-base-300 bg-opacity-20 duration-300 hover:bg-opacity-90">
             <div className=" card-body ">
               <div className="form-control">
                 <label className="label">
@@ -179,7 +179,7 @@ function App() {
                 <input
                   type="text"
                   placeholder="username"
-                  className="input-bordered input"
+                  className="input-bordered input-info input w-full max-w-xs duration-75"
                 />
               </div>
               <div className="form-control">
@@ -189,7 +189,7 @@ function App() {
                 <input
                   type="password"
                   placeholder="password"
-                  className="input-bordered input"
+                  className="input-bordered input-info input w-full max-w-xs duration-75"
                 />
               </div>
               <div className="form-control">
@@ -199,7 +199,7 @@ function App() {
                 <input
                   type="email"
                   placeholder="email"
-                  className="input-bordered input"
+                  className="input-bordered input-info input w-full max-w-xs duration-75"
                   id="email"
                   required
                 />
@@ -276,9 +276,7 @@ function App() {
           </div>
         </div>
       </div>
-      <div className="bg-black text-center text-2xl text-red-500 ">
-        Still nothing found?
-      </div>
+
       <form
         className="flex items-center justify-center bg-black "
         onSubmit={handleSearch}
@@ -288,16 +286,36 @@ function App() {
           value={searchQuery}
           onChange={(event) => setSearchQuery(event.target.value)}
           placeholder="Search movies, shows..."
-          className=" rounded-md rounded-r-none bg-gray-800 px-2 py-4 text-center text-lg text-gray-100 md:w-auto"
+          className=" input-bordered input-info input input-lg w-full max-w-xs duration-100"
         />
 
-        <button
-          type="submit"
-          className="my-10 cursor-pointer rounded-md rounded-l-none bg-red-600 p-4 px-7 text-center text-lg text-gray-50  duration-300 hover:bg-red-700 hover:text-white active:bg-red-800 active:text-gray-300"
-        >
+        <button type="submit" className="btn-primary btn-lg btn mb-8">
           Search
         </button>
       </form>
+
+      <div className="bg-black  text-center text-2xl text-red-500">
+        <p>Still nothing found?</p>
+        <div className="stats stats-vertical bg-gray-100 px-11 shadow lg:stats-horizontal">
+          <div className="stat">
+            <div className="stat-title">Views</div>
+            <div className="stat-value">31K</div>
+            <div className="stat-desc">Jan 1st - Feb 1st</div>
+          </div>
+
+          <div className="stat">
+            <div className="stat-title">New Users</div>
+            <div className="stat-value">4,200</div>
+            <div className="stat-desc">↗︎ 400 (22%)</div>
+          </div>
+
+          <div className="stat">
+            <div className="stat-title">Pro Users</div>
+            <div className="stat-value">369</div>
+            <div className="stat-desc">↘︎ 90 (14%)</div>
+          </div>
+        </div>
+      </div>
 
       <footer className="bg-black shadow-2xl">
         <div className="container mx-auto max-w-7xl py-10">
