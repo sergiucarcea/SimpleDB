@@ -161,11 +161,61 @@ function App() {
           </div>
         </div>
       </section>
+      <div className="hero h-[80%] bg-gradient-to-tl from-blue-900 via-stone-800 to-blue-900 backdrop-blur-sm">
+        <div className="hero-content flex-col lg:flex-row-reverse">
+          <div className="text-center lg:text-left">
+            <h1 className="text-5xl font-bold text-red-500">Don't miss out!</h1>
+            <p className="py-6 text-lg text-slate-300">
+              Join our community of film and TV enthusiasts today and start
+              exploring the best of entertainment!
+            </p>
+          </div>
+          <div className="card w-full max-w-sm flex-shrink-0 bg-base-300  bg-opacity-20 hover:bg-opacity-90">
+            <div className=" card-body ">
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Username</span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="username"
+                  className="input-bordered input"
+                />
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-password">Password</span>
+                </label>
+                <input
+                  type="password"
+                  placeholder="password"
+                  className="input-bordered input"
+                />
+              </div>
+              <div className="form-control">
+                <label className="label" htmlFor="email">
+                  <span className="label-text">Email</span>
+                </label>
+                <input
+                  type="email"
+                  placeholder="email"
+                  className="input-bordered input"
+                  id="email"
+                  required
+                />
+              </div>
+              <div className="form-control mt-6">
+                <button className="btn-primary btn">Register</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div className="background_container bg-gradient-to-tr from-blue-900 via-stone-800 to-blue-900 ">
         <div className="button_container flex justify-center gap-7 gap-x-20 lg:text-lg">
           <button
             id="movies"
-            className="cursor-pointer rounded-md bg-red-600 p-4  px-7 text-lg text-gray-50  shadow-2xl duration-300 hover:bg-red-700 hover:text-white active:bg-red-800 active:text-gray-300"
+            className="btn-secondary btn sm:btn-sm md:btn-md lg:btn-lg"
             onClick={() => {
               getTrendingMovieData("movie");
             }}
@@ -174,7 +224,7 @@ function App() {
           </button>
           <button
             id="shows"
-            className="cursor-pointer rounded-md bg-red-600 p-4 px-7 text-lg text-gray-50 shadow-2xl duration-300 hover:bg-red-700 hover:text-white active:bg-red-800 active:text-gray-300"
+            className="btn-secondary btn sm:btn-sm md:btn-md lg:btn-lg"
             onClick={() => {
               getTrendingMovieData("tv");
             }}
