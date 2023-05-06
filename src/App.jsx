@@ -295,7 +295,6 @@ function App() {
       </form>
 
       <div className="bg-black  text-center text-2xl text-red-500">
-        <p>Still nothing found?</p>
         <div className="stats stats-vertical bg-gray-100 px-11 shadow lg:stats-horizontal">
           <div className="stat">
             <div className="stat-title">Views</div>
@@ -314,6 +313,63 @@ function App() {
             <div className="stat-value">369</div>
             <div className="stat-desc">↘︎ 90 (14%)</div>
           </div>
+        </div>
+      </div>
+
+      <div className="bg-black py-5  text-center text-2xl text-red-500">
+        <p>Frequent quiestions </p>
+      </div>
+      <div tabIndex={0} className="group collapse">
+        <div className="collapse-title bg-primary text-center text-lg text-primary-content group-focus:bg-secondary group-focus:text-secondary-content">
+          <h2 className="text-2xl">What is Beyond Stream ?</h2>
+        </div>
+        <div className="collapse-content bg-primary text-center text-lg text-primary-content group-focus:bg-secondary group-focus:text-secondary-content">
+          <p>
+            Beyond Stream is a dedicated streaming platform featuring movies and
+            productions from Disney, Pixar, Marvel, Star Wars, National
+            Geographic and more.
+          </p>
+        </div>
+      </div>
+      <div tabIndex={0} className="group collapse">
+        <div className="collapse-title bg-primary text-center text-lg text-primary-content group-focus:bg-secondary group-focus:text-secondary-content">
+          <h2 className="text-2xl">What can I watch on Beyond Stream ?</h2>
+        </div>
+        <div className="collapse-content list-disc bg-primary text-center text-lg text-primary-content group-focus:bg-secondary group-focus:text-secondary-content">
+          <p>
+            Beyond Stream offers an impressive collection of movies and series,
+            with new content added monthly.
+          </p>
+          <ul className="list-inside list-disc">
+            <li>
+              4K UHD, Dolby Vision and Dolby Atmos playback on compatible
+              devices at no additional cost.
+            </li>
+            <li>
+              Discover the beauty of the planet through the exceptional
+              documentaries of the National Geographic brand
+            </li>
+            <li>
+              Exclusively see the shows everyone is talking about, like the
+              latest season of the global phenomenon The Walking Dead
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div tabIndex={0} className="group collapse">
+        <div className="collapse-title bg-primary text-center text-lg text-primary-content group-focus:bg-secondary group-focus:text-secondary-content">
+          <h2 className="text-2xl">How much does it cost ?</h2>
+        </div>
+        <div className="collapse-content bg-primary text-center text-lg text-primary-content group-focus:bg-secondary group-focus:text-secondary-content">
+          <p>
+            The rate for monthly subscription is $10. Alternatively, you can
+            choose the annual plan ($12) for 12 months at the price of 10
+            months!*
+          </p>
+          <p>
+            *Discount calculated compared to 12 months at the monthly
+            subscription rate ($10) at launch.
+          </p>
         </div>
       </div>
 
