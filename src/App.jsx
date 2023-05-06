@@ -215,7 +215,7 @@ function App() {
         <div className="button_container flex justify-center gap-7 gap-x-20 lg:text-lg">
           <button
             id="movies"
-            className="btn-secondary btn sm:btn-sm md:btn-md lg:btn-lg"
+            className="btn-secondary btn shadow-lg shadow-indigo-500/80 sm:btn-sm md:btn-md lg:btn-lg"
             onClick={() => {
               getTrendingMovieData("movie");
             }}
@@ -224,7 +224,7 @@ function App() {
           </button>
           <button
             id="shows"
-            className="btn-secondary btn sm:btn-sm md:btn-md lg:btn-lg"
+            className="btn-secondary btn shadow-lg shadow-indigo-500/80 sm:btn-sm md:btn-md lg:btn-lg"
             onClick={() => {
               getTrendingMovieData("tv");
             }}
@@ -236,10 +236,11 @@ function App() {
           {movieData.map((item) => (
             <div
               key={item.id}
-              className="movie_item transform cursor-pointer  transition-all hover:scale-95"
+              className="movie_item transform cursor-pointer transition-all duration-200 hover:scale-95 "
             >
               <img
                 src={`https://image.tmdb.org/t/p/w300/${item.poster_path}`}
+                className="shadow-2xl hover:shadow-indigo-500/50"
               />
               <div className="movie_name">
                 {item.original_title ? item.original_title : item.original_name}
