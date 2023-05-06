@@ -69,12 +69,12 @@ function App() {
   return (
     <>
       <section id="hero" className="font-mono shadow-2xl ">
-        <div className=" mx-auto max-w-7xl py-12">
+        <div className=" mx-auto max-w-[85%] py-12">
           <nav className="flex items-center justify-between  text-white">
             <img
               src={firstlogo}
               alt="logo"
-              className="max-w-[22%] cursor-pointer"
+              className="min-h-full overflow-hidden sm:w-52 md:w-72 lg:w-52"
               onClick={() => window.location.reload()}
             />
 
@@ -95,7 +95,7 @@ function App() {
           </nav>
 
           <button
-            className=" btn-accent btn float-right  sm:btn-sm  md:btn-md lg:btn-lg"
+            className=" btn-primary btn md:btn-md lg:btn-lg sm:float-left md:float-right lg:float-right  "
             onClick={handleSignInClick}
           >
             Sign in
@@ -316,8 +316,8 @@ function App() {
         </div>
       </div>
 
-      <div className="bg-black py-5  text-center text-2xl text-red-500">
-        <p>Frequent quiestions </p>
+      <div className="bg-black py-5  text-center text-3xl font-bold text-red-500">
+        <p>Frequent questions </p>
       </div>
       <div tabIndex={0} className="group collapse">
         <div className="collapse-title bg-primary text-center text-lg text-primary-content group-focus:bg-secondary group-focus:text-secondary-content">
@@ -373,74 +373,83 @@ function App() {
         </div>
       </div>
 
-      <footer className="bg-black shadow-2xl">
-        <div className="container mx-auto max-w-7xl py-10">
-          <div className="mb-8 flex flex-col items-center space-y-6 md:flex-row md:items-start md:justify-between md:space-y-0">
-            <div className="flex flex-col items-center space-y-8 md:items-start md:space-y-4">
-              <div className="h-8">
-                <img
-                  src={firstlogo}
-                  alt=""
-                  className="max-w-[22%] md:ml-3"
-                  onClick={() => window.location.reload()}
-                />
-              </div>
-
-              <div className="flex flex-col items-center space-y-4 font-bold text-white md:ml-3 md:flex-row md:space-x-6 md:space-y-0">
-                <div className="group h-10 text-lg text-gray-50 duration-300 hover:text-gray-300 active:text-gray-500">
-                  <a href="#movies">Movies</a>
-                </div>
-
-                <div className="group h-10 text-lg text-gray-50 duration-300 hover:text-gray-300 active:text-gray-500">
-                  <a href="#shows">TV Shows</a>
-                </div>
-
-                <div className="group h-10 text-lg text-gray-50 duration-300 hover:text-gray-300 active:text-gray-500">
-                  <a href="#">Actors</a>
-                </div>
-
-                <div className="group h-10 text-lg text-gray-50 duration-300 hover:text-gray-300 active:text-gray-500">
-                  <a href="#">Reviews</a>
-                </div>
-
-                <div className="group h-10 text-lg text-gray-50 duration-300 hover:text-gray-300 active:text-gray-500">
-                  <a href="#">Support</a>
-                </div>
-              </div>
-            </div>
-
-            <div className="flex flex-col items-start justify-between space-y-4 text-gray-700">
-              <div className="mx-auto flex items-center justify-center space-x-4 md:mx-0 md:justify-end ">
-                <div className="group h-8">
-                  <a href="#">
-                    <img src={logo4} alt="" className=" h-7 w-7" />
-                  </a>
-                </div>
-
-                <div className="group h-8">
-                  <a href="#">
-                    <img src={logo5} alt="" className="h-7 w-7" />
-                  </a>
-                </div>
-
-                <div className="group h-8">
-                  <a href="#">
-                    <img src={logo7} alt="" className="h-7 w-7" />
-                  </a>
-                </div>
-
-                <div className="group h-8">
-                  <a href="#">
-                    <img src={logo6} alt="" className="h-7 w-7" />
-                  </a>
-                </div>
-              </div>
-
-              <div className="font-mono">
-                &copy; 2023 Beyond Stream All Rights Reserved
-              </div>
-            </div>
+      <footer className="footer bg-black p-10 text-neutral-content">
+        <div>
+          <img
+            srcSet={firstlogo}
+            alt="logo"
+            className="min-h-full sm:w-[50%] lg:w-72"
+            onClick={() => window.location.reload()}
+          />
+          <div className="inline-flex flex-wrap space-x-10 text-lg font-semibold   ">
+            <a
+              href="#movies"
+              className="text-gray-50 duration-300 hover:text-gray-300 active:text-gray-500  "
+            >
+              Movies
+            </a>
+            <a
+              href="#shows"
+              className="text-gray-50 duration-300 hover:text-gray-300 active:text-gray-500 "
+            >
+              TV Shows
+            </a>
+            <a
+              href="#"
+              className="text-gray-50 duration-300 hover:text-gray-300 active:text-gray-500 "
+            >
+              Actors
+            </a>
+            <a
+              href="#"
+              className="text-gray-50 duration-300 hover:text-gray-300 active:text-gray-500 "
+            >
+              Reviews
+            </a>
+            <a
+              href="#"
+              className="text-gray-50 duration-300 hover:text-gray-300 active:text-gray-500 "
+            >
+              Support
+            </a>
           </div>
+        </div>
+        <div>
+          <span className="footer-title">Social</span>
+          <div className="grid grid-flow-col gap-4">
+            <a href="#">
+              <img
+                src={logo4}
+                alt="facebook"
+                className=" h-7 w-7 duration-300 hover:-skew-y-12"
+              />
+            </a>
+            <a href="#">
+              <img
+                src={logo5}
+                alt="twitter"
+                className="h-7 w-7 duration-300 hover:-skew-y-12"
+              />
+            </a>
+            <a href="#">
+              <img
+                src={logo6}
+                alt="instagram"
+                className="h-7 w-7 duration-300 hover:-skew-y-12"
+              />
+            </a>
+            <a href="#">
+              <img
+                src={logo7}
+                alt="pinterest"
+                className="h-7 w-7 duration-300 hover:-skew-y-12"
+              />
+            </a>
+          </div>
+        </div>
+        <div className=" bg-black p-4 text-base-content">
+          <p>&copy; 2023 Beyond Stream </p>
+          <p>All Rights Reserved</p>
         </div>
       </footer>
     </>
