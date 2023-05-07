@@ -54,7 +54,6 @@ function App() {
         );
       }
 
-      // console.log(resp.data.results);
       setMovieData(resp.data.results);
     } catch (e) {
       console.error(e);
@@ -64,6 +63,29 @@ function App() {
   function handleSearch(event) {
     event.preventDefault();
     getTrendingMovieData(searchQuery ? "multi" : "movie");
+  }
+
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+
+  function handleUsernameChange(event) {
+    setUsername(event.target.value);
+  }
+
+  function handlePasswordChange(event) {
+    setPassword(event.target.value);
+  }
+
+  function handleEmailChange(event) {
+    setEmail(event.target.value);
+  }
+
+  function handleRegister(event) {
+    event.preventDefault();
+    sessionStorage.setItem("username", username);
+    sessionStorage.setItem("password", password);
+    sessionStorage.setItem("email", email);
   }
 
   return (
@@ -180,6 +202,8 @@ function App() {
                   type="text"
                   placeholder="username"
                   className="input-bordered input-info input w-full max-w-xs duration-75"
+                  value={username}
+                  onChange={handleUsernameChange}
                 />
               </div>
               <div className="form-control">
@@ -190,22 +214,28 @@ function App() {
                   type="password"
                   placeholder="password"
                   className="input-bordered input-info input w-full max-w-xs duration-75"
+                  value={password}
+                  onChange={handlePasswordChange}
                 />
               </div>
               <div className="form-control">
-                <label className="label" htmlFor="email">
+                <label className="label">
                   <span className="label-text">Email</span>
                 </label>
                 <input
                   type="email"
                   placeholder="email"
                   className="input-bordered input-info input w-full max-w-xs duration-75"
+                  value={email}
+                  onChange={handleEmailChange}
                   id="email"
                   required
                 />
               </div>
               <div className="form-control mt-6">
-                <button className="btn-primary btn">Register</button>
+                <button className="btn-primary btn" onClick={handleRegister}>
+                  Register
+                </button>
               </div>
             </div>
           </div>
@@ -382,7 +412,7 @@ function App() {
             className="min-h-full sm:w-[50%] lg:w-72"
             onClick={() => window.location.reload()}
           />
-          <div className="inline-flex flex-wrap space-x-10 text-lg font-semibold   ">
+          <div className="inline-flex flex-wrap space-x-10 text-lg font-semibold">
             <a
               href="#movies"
               className="text-gray-50 duration-300 hover:text-gray-300 active:text-gray-500  "
