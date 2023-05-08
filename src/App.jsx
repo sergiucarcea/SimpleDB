@@ -20,32 +20,24 @@ function App() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
-
   const handleSignInClick = () => {
     setShowModal(true);
   };
-
   const handleModalClose = () => {
     setShowModal(false);
   };
-
   function handleSubmit(event) {
     event.preventDefault();
-
     const emailInput = document.getElementById("email");
     const passwordInput = document.getElementById("password");
-
     const email = emailInput.value;
     const password = passwordInput.value;
-
     localStorage.setItem("email", email);
     localStorage.setItem("password", password);
   }
-
   useEffect(() => {
     getTrendingMovieData("movie");
   }, []);
-
   async function getTrendingMovieData(type) {
     try {
       const apiKey = import.meta.env.VITE_API;
@@ -66,7 +58,6 @@ function App() {
           },
         });
       }
-
       setMovieData(resp.data.results);
     } catch (e) {
       console.error(e);
@@ -77,19 +68,15 @@ function App() {
     event.preventDefault();
     getTrendingMovieData(searchQuery ? "multi" : "movie");
   }
-
   function handleUsernameChange(event) {
     setUsername(event.target.value);
   }
-
   function handlePasswordChange(event) {
     setPassword(event.target.value);
   }
-
   function handleEmailChange(event) {
     setEmail(event.target.value);
   }
-
   function handleRegister(event) {
     event.preventDefault();
     sessionStorage.setItem("username", username);
@@ -277,16 +264,23 @@ function App() {
               key={item.id}
               className="movie_item transform cursor-pointer transition-all duration-200 hover:scale-95 "
             >
-              <img
-                src={`https://image.tmdb.org/t/p/w300/${item.poster_path}`}
-                className="shadow-2xl hover:shadow-indigo-500/50"
-              />
-              <div className="movie_name">
-                {item.original_title ? item.original_title : item.original_name}
-              </div>
+              {item.poster_path ? (
+                <img
+                  src={`https://image.tmdb.org/t/p/w300/${item.poster_path}`}
+                  className="shadow-2xl hover:shadow-indigo-500/50"
+                />
+              ) : (
+                ""
+              )}
+              {item.original_title || item.original_name ? (
+                <div className="movie_name">
+                  {item.original_title || item.original_name}
+                </div>
+              ) : null}
             </div>
           ))}
         </div>
+
         <div className="md:grid-cols-3-3 grid grid-cols-3 justify-center bg-black py-10 pb-32 align-middle text-white sm:row-span-3  sm:text-xs md:text-base lg:text-lg">
           <div className="items-center">
             <img src={logo1} alt="something" />
