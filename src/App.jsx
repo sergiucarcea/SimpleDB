@@ -11,9 +11,15 @@ import logo6 from "/src/icon-instagram.svg";
 import logo7 from "/src/icon-pinterest.svg";
 
 function App() {
+  const api = axios.create({
+    baseURL: import.meta.env.VITE_URL,
+  });
   const [movieData, setMovieData] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [showModal, setShowModal] = useState(false);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
 
   const handleSignInClick = () => {
     setShowModal(true);
@@ -42,16 +48,23 @@ function App() {
 
   async function getTrendingMovieData(type) {
     try {
-      const apiKey = "db9d40d07710f8f16e5180c72ca16b00";
+      const apiKey = import.meta.env.VITE_API;
       let resp;
       if (searchQuery) {
-        resp = await axios.get(
-          `https://api.themoviedb.org/3/search/${type}?api_key=${apiKey}&query=${searchQuery}&media_type=movie`
-        );
+        resp = await api.get(`/search/${type}`, {
+          params: {
+            api_key: apiKey,
+            query: searchQuery,
+            media_type: "movie",
+          },
+        });
       } else {
-        resp = await axios.get(
-          `https://api.themoviedb.org/3/trending/${type}/day?api_key=${apiKey}&media_type=movie`
-        );
+        resp = await api.get(`/trending/${type}/day`, {
+          params: {
+            api_key: apiKey,
+            media_type: "movie",
+          },
+        });
       }
 
       setMovieData(resp.data.results);
@@ -64,10 +77,6 @@ function App() {
     event.preventDefault();
     getTrendingMovieData(searchQuery ? "multi" : "movie");
   }
-
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [email, setEmail] = useState("");
 
   function handleUsernameChange(event) {
     setUsername(event.target.value);
