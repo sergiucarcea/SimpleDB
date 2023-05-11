@@ -242,6 +242,7 @@ function App() {
       <div className="background_container bg-gradient-to-tr from-blue-900 via-stone-800 to-blue-900 ">
         <TrendingButtons getTrendingMovieData={getTrendingMovieData} />
         <MovieList movieData={movieData} />
+
         <div className="md:grid-cols-3-3 grid grid-cols-3 justify-center bg-black py-10 pb-32 align-middle text-white sm:row-span-3  sm:text-xs md:text-base lg:text-lg">
           <div className="items-center">
             <img src={logo1} alt="something" />
