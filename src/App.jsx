@@ -9,6 +9,8 @@ import logo4 from "/src/icon-facebook.svg";
 import logo5 from "/src/icon-twitter.svg";
 import logo6 from "/src/icon-instagram.svg";
 import logo7 from "/src/icon-pinterest.svg";
+import MovieList from "./MovieList";
+import TrendingButtons from "./TrendingButtons";
 
 function App() {
   const api = axios.create({
@@ -188,7 +190,7 @@ function App() {
               exploring the best of entertainment!
             </p>
           </div>
-          <div className="card w-full max-w-sm flex-shrink-0 bg-base-300 bg-opacity-20 duration-300 hover:bg-opacity-90">
+          <div className="card w-full max-w-sm flex-shrink-0  bg-base-300 bg-opacity-20 duration-300 hover:bg-opacity-90">
             <div className=" card-body ">
               <div className="form-control">
                 <label className="label">
@@ -238,49 +240,8 @@ function App() {
         </div>
       </div>
       <div className="background_container bg-gradient-to-tr from-blue-900 via-stone-800 to-blue-900 ">
-        <div className="button_container flex justify-center gap-7 gap-x-20 lg:text-lg">
-          <button
-            id="movies"
-            className="btn-secondary btn shadow-lg shadow-indigo-500/80 sm:btn-sm md:btn-md lg:btn-lg"
-            onClick={() => {
-              getTrendingMovieData("movie");
-            }}
-          >
-            Trending Movies
-          </button>
-          <button
-            id="shows"
-            className="btn-secondary btn shadow-lg shadow-indigo-500/80 sm:btn-sm md:btn-md lg:btn-lg"
-            onClick={() => {
-              getTrendingMovieData("tv");
-            }}
-          >
-            Trending Shows
-          </button>
-        </div>
-        <div className="flex-container">
-          {movieData.map((item) => (
-            <div
-              key={item.id}
-              className="movie_item transform cursor-pointer transition-all duration-200 hover:scale-95 "
-            >
-              {item.poster_path ? (
-                <img
-                  src={`https://image.tmdb.org/t/p/w300/${item.poster_path}`}
-                  className="shadow-2xl hover:shadow-indigo-500/50"
-                />
-              ) : (
-                ""
-              )}
-              {item.original_title || item.original_name ? (
-                <div className="movie_name">
-                  {item.original_title || item.original_name}
-                </div>
-              ) : null}
-            </div>
-          ))}
-        </div>
-
+        <TrendingButtons getTrendingMovieData={getTrendingMovieData} />
+        <MovieList movieData={movieData} />
         <div className="md:grid-cols-3-3 grid grid-cols-3 justify-center bg-black py-10 pb-32 align-middle text-white sm:row-span-3  sm:text-xs md:text-base lg:text-lg">
           <div className="items-center">
             <img src={logo1} alt="something" />
